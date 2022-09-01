@@ -41,7 +41,7 @@
         </tr>
         <tr>
           <th>name</th>
-          <th>companies</th>
+          <th>company</th>
           <th>phone</th>
           <th>mail</th>
         </tr>
@@ -97,7 +97,7 @@
         </tr>
       </tbody>
     </table>
-    
+
     <!-- action table -->
     <table class="show-table">
       <thead>
