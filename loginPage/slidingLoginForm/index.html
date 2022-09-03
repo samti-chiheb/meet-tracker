@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- sign in form  -->
+  <div class="form-container sign-in-form">
+    <div class="form-box sign-in-box">
+      <h2>Login</h2>
+      <form action="">
+        <div class="field">
+          <i class="uil uil-at"></i>
+          <input type="email" placeholder="Email ID" required>
+        </div>
+        <div class="field">
+          <i class="uil uil-lock-alt"></i>
+          <input class="password-input" type="password" placeholder="Password" required>
+          <div class="eye-btn"><i class="uil uil-eye-slash"></i></div>
+        </div>
+        <div class="forgot-link">
+          <a href="">Forgot password</a>
+        </div>
+        <input class="submit-btn" type="submit" value="Login" >
+      </form>
+      <div class="login-options">
+        <p class="text">Or, login with ...</p>
+        <div class="other-logins">
+          <a href="#"><img src="./img/search.png" alt=""></a>
+          <a href="#"><img src="./img/facebook.png" alt=""></a>
+          <a href="#"><img src="./img/apple-black-logo.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+    <div class="imgBox sign-in-imgBox">
+      <div class="sliding-link">
+        <p>Don't have an account?</p>
+        <span class="sign-up-btn">Sign up</span>
+      </div>
+      <img src="./img/sign_in_bleu.png" alt="">
+    </div>
+  </div>
+
+  <!-- Sign up form -->
+  <div class="form-container sign-up-form">
+    <div class="imgBox sign-up-imgBox">
+      <div class="sliding-link">
+        <p>Already a member?</p>
+        <span class="sign-in-btn">Sign in</span>
+      </div>
+      <img src="./img/sign_up_bleu.png" alt="">
+    </div>
+    <div class="form-box sign-up-box">
+      <h2>Sign up</h2>
+      <div class="login-options">
+        <div class="other-logins">
+          <a href="#"><img src="./img/search.png" alt=""></a>
+          <a href="#"><img src="./img/facebook.png" alt=""></a>
+          <a href="#"><img src="./img/apple-black-logo.png" alt=""></a>
+        </div>
+        <p class="text">Or, Sign up with email...</p>
+      </div>
+      <form action="">
+        <div class="field">
+          <i class="uil uil-user"></i>
+          <input type="text" placeholder="Full name" required>
+        </div>
+        <div class="field">
+          <i class="uil uil-at"></i>
+          <input type="email" placeholder="Email ID" required>
+        </div>
+        <div class="field">
+          <i class="uil uil-lock-alt"></i>
+          <input  type="password" placeholder="Password" required>
+        </div>
+        <div class="field">
+          <i class="uil uil-lock-access"></i>
+          <input  type="password" placeholder="Confirm password" required>
+        </div>
+        <input class="submit-btn" type="submit" value="Sign up" >
+      </form>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+  
+</body>
+</html>
