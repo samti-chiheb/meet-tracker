@@ -19,11 +19,22 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  width: 0.35rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
+
 body {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  overflow: hidden;
 }
 
 /*side nav bar*/
@@ -117,6 +128,7 @@ visibility: visible;
   transition: 0s;
   pointer-events: none;
   display: block;
+  
 }
 
 

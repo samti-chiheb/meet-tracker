@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  --logo-primary: #fff;
+  --icon-primary: #fff;
+  --icon-seconday: grey;
+  --text-primary: #fff;
+  --text-secondary: #363636;
+  --bg-primary: #4d5bf9;
+  --bg-secondary: #fff;
+  --bg-tertiary: #9fa6f8;
+  --tb-primary: #fff;
+  --tb-secondary: #e4e6f5;
+}
+
+h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 10px 0px;
+  margin: 16px;
+  border-radius: 16px;
+}
+
+.tables {
+display: flex;
+align-items: stretch;
+flex-direction: column;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #bdc3c7;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  margin: 25px;
+}
+
+tr {
+  transition: all .2s ease-in;
+  cursor: pointer;
+}
+
+tr:hover {
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--tb-secondary);
+  transform: scale(1.02, 1.1);
+}
+
+th,td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-header {
+  background-color: var(--bg-tertiary);
+}
+
+.mission-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 5px;
+}
+
+
