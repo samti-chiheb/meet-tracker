@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  --logo-primary: #fff;
+  --icon-primary: #fff;
+  --icon-seconday: grey;
+  --text-primary: #fff;
+  --text-secondary: #363636;
+  --bg-primary: #4d5bf9;
+  --bg-secondary: #fff;
+  --bg-tertiary: #9fa6f8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*side nav bar*/
+.side-navbar {
+  background-color: var(--bg-primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 78px;
+  padding: 6px 14px;
+  transition: all .5s ease;
+}
+
+.side-navbar.active{
+  width: 240px;
+}
+
+/*nav header*/
+.side-navbar .logo-container .logo {
+  color: var(--logo-primary);
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ;
+}
+
+.side-navbar.active .logo-container .logo {
+visibility: visible;
+}
+
+.logo-container .logo i {
+  font-size: 2.5rem;
+  margin-right: 5px;
+}
+
+.logo-container .logo .logo-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.side-navbar .navbar-btn {
+  position: absolute;
+  color: var(--icon-primary);
+  left: 50%;
+  top: 6px;
+  font-size: 1.4rem;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+}
+
+.side-navbar.active .navbar-btn {
+  left: 90%;
+
+}
+
+/* Nav List */
+.side-navbar ul {
+  margin-top: 20px;
+}
+
+.side-navbar ul li{
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 40px;
+}
+
+/*tooltip*/
+.side-navbar ul li .tooltip{
+  position: absolute;
+  left: 70px;
+  top: 0;
+  transform: translateY(-50%);
+  border-radius: 6px;
+  height: 35px;
+  width: 122px;
+  background-color: var(--bg-secondary);
+  line-height: 35px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  transition: 0s;
+  pointer-events: none;
+  display: block;
+}
+
+
+.side-navbar.active ul li .tooltip{
+  display: none;
+}
+
+.side-navbar ul li:hover .tooltip{
+  top: 50%;
+  visibility: visible;
+}
+
+.side-navbar ul li input{
+  position: absolute;
+  height: 80%;
+  width: 80%;
+  left: 0;
+  top: 5px;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  background-color: var(--bg-tertiary);
+  padding-left: 50px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  transition: .5s ease;
+}
+
+
+.side-navbar ul li .uil-search {
+  height: 80% ;
+  position: absolute;
+  z-index: 99;
+  color: var(--icon-seconday);
+  font-size: 1.6rem;
+}
+
+
+.side-navbar ul li input:focus  {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+.side-navbar ul li a {
+  color: var(--icon-primary);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.side-navbar ul li a:hover {
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+}
+
+.side-navbar ul li i {
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.side-navbar .link-text{
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ;
+}
+
+.side-navbar.active .link-text{
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+/*profile container*/
+
+.side-navbar .profile-container {
+  position: absolute;
+  color: var(--text-primary);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.side-navbar .profile-container .profile{
+  position: relative;
+  padding: 10px 6px;
+  height: 60px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.3s ;
+}
+
+.side-navbar.active .profile-container .profile {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.profile-container .profile .profile-details{
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.side-navbar.active .profile .profile-details{
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.profile .profile-details img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.profile .profile-details .profile-info {
+  margin-left: 10px;
+}
+
+.profile .profile-details .profile-name {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.profile .profile-details .profile-job {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.profile .logout {
+  position: absolute;
+  left: 55%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  min-width: 50px;
+  line-height: 40px;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  background-color: var(--bg-tertiary);
+  color: var(--icon-seconday);
+  text-align: center;
+}
+
+.side-navbar.active .profile .logout {
+  left: 88%;
+}
+
+
+
+/*home contaienr*/
+.home-container {
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 78px);
+  left: 78px;
+  transition: .5s;
+}
+
+.home-container .content {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 14px;
+}
+
+.side-navbar.active ~ .home-container{
+  width: calc(100% - 250px);
+  left: 240px;
+
+}
