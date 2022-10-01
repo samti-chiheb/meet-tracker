@@ -1,128 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/table.css">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Hoverable Table</h1>
-  <hr>
   <section class="tables">
-    <table class="recruiter">
-      <tr class="table-header">
-        <th>Recruiter Name</th>
-        <th>Phone</th>
-        <th>E-mail</th>
-        <th>Recruiter Note</th>
-      </tr>
-      <tr>
-        <td>Sophie</td>
-        <td>0606060606</td>
-        <td>sophie@gmail.com</td>
-        <td>Sophie note</td>
-      </tr>
-      <tr>
-        <td>Sophie</td>
-        <td>0606060606</td>
-        <td>sophie@gmail.com</td>
-        <td>Sophie note</td>
-      </tr>
-      <tr>
-        <td>Sophie</td>
-        <td>0606060606</td>
-        <td>sophie@gmail.com</td>
-        <td>Sophie note</td>
-      </tr>
-      <tr>
-        <td>Sophie</td>
-        <td>0606060606</td>
-        <td>sophie@gmail.com</td>
-        <td>Sophie note</td>
-      </tr>
-      <tr>
-        <td>Sophie</td>
-        <td>0606060606</td>
-        <td>sophie@gmail.com</td>
-        <td>Sophie note</td>
-      </tr>
-      <tr>
-        <td>Sophie</td>
-        <td>0606060606</td>
-        <td>sophie@gmail.com</td>
-        <td>Sophie note</td>
-      </tr>
-      <tr>
-        <td>Sophie</td>
-        <td>0606060606</td>
-        <td>sophie@gmail.com</td>
-        <td>Sophie note</td>
-      </tr>
-      <tr>
-        <td>Sophie</td>
-        <td>0606060606</td>
-        <td>sophie@gmail.com</td>
-        <td>Sophie note</td>
-      </tr>
-    </table>
-    <table class="Client">
-      <tr class="table-header">
-        <th>Client name</th>
-        <th>Recruiter name</th>
-        <th>Client Rate</th>
-        <th>Client Note</th>
-      </tr>
-      <tr>
-        <td>leboncoin</td>
-        <td>sophie</td>
-        <td>9</td>
-        <td><a href="#">leboncoin Note</a></td>
-      </tr>
-      <tr>
-        <td>leboncoin</td>
-        <td>sophie</td>
-        <td>9</td>
-        <td><a href="#">leboncoin Note</a></td>
-      </tr>
-      <tr>
-        <td>leboncoin</td>
-        <td>sophie</td>
-        <td>9</td>
-        <td><a href="#">leboncoin Note</a></td>
-      </tr>
-      <tr>
-        <td>leboncoin</td>
-        <td>sophie</td>
-        <td>9</td>
-        <td><a href="#">leboncoin Note</a></td>
-      </tr>
-      <tr>
-        <td>leboncoin</td>
-        <td>sophie</td>
-        <td>9</td>
-        <td><a href="#">leboncoin Note</a></td>
-      </tr>
-      <tr>
-        <td>leboncoin</td>
-        <td>sophie</td>
-        <td>9</td>
-        <td><a href="#">leboncoin Note</a></td>
-      </tr>
-      <tr>
-        <td>leboncoin</td>
-        <td>sophie</td>
-        <td>9</td>
-        <td><a href="#">leboncoin Note</a></td>
-      </tr>
-      <tr>
-        <td>leboncoin</td>
-        <td>sophie</td>
-        <td>9</td>
-        <td><a href="#">leboncoin Note</a></td>
-      </tr>
-    </table>
     <div class="mission-container">
       <table class="mission">
         <tr class="table-header">
@@ -264,6 +140,116 @@
         </tr>
       </table>
     </div>
+    <table class="recruiter">
+      <tr class="table-header">
+        <th>Recruiter Name</th>
+        <th>Phone</th>
+        <th>E-mail</th>
+        <th>Recruiter Note</th>
+      </tr>
+      <tr>
+        <td>Sophie</td>
+        <td>0606060606</td>
+        <td>sophie@gmail.com</td>
+        <td>Sophie note</td>
+      </tr>
+      <tr>
+        <td>Sophie</td>
+        <td>0606060606</td>
+        <td>sophie@gmail.com</td>
+        <td>Sophie note</td>
+      </tr>
+      <tr>
+        <td>Sophie</td>
+        <td>0606060606</td>
+        <td>sophie@gmail.com</td>
+        <td>Sophie note</td>
+      </tr>
+      <tr>
+        <td>Sophie</td>
+        <td>0606060606</td>
+        <td>sophie@gmail.com</td>
+        <td>Sophie note</td>
+      </tr>
+      <tr>
+        <td>Sophie</td>
+        <td>0606060606</td>
+        <td>sophie@gmail.com</td>
+        <td>Sophie note</td>
+      </tr>
+      <tr>
+        <td>Sophie</td>
+        <td>0606060606</td>
+        <td>sophie@gmail.com</td>
+        <td>Sophie note</td>
+      </tr>
+      <tr>
+        <td>Sophie</td>
+        <td>0606060606</td>
+        <td>sophie@gmail.com</td>
+        <td>Sophie note</td>
+      </tr>
+      <tr>
+        <td>Sophie</td>
+        <td>0606060606</td>
+        <td>sophie@gmail.com</td>
+        <td>Sophie note</td>
+      </tr>
+    </table>
+    <table class="Client">
+      <tr class="table-header">
+        <th>Client name</th>
+        <th>Recruiter name</th>
+        <th>Client Rate</th>
+        <th>Client Note</th>
+      </tr>
+      <tr>
+        <td>leboncoin</td>
+        <td>sophie</td>
+        <td>9</td>
+        <td><a href="#">leboncoin Note</a></td>
+      </tr>
+      <tr>
+        <td>leboncoin</td>
+        <td>sophie</td>
+        <td>9</td>
+        <td><a href="#">leboncoin Note</a></td>
+      </tr>
+      <tr>
+        <td>leboncoin</td>
+        <td>sophie</td>
+        <td>9</td>
+        <td><a href="#">leboncoin Note</a></td>
+      </tr>
+      <tr>
+        <td>leboncoin</td>
+        <td>sophie</td>
+        <td>9</td>
+        <td><a href="#">leboncoin Note</a></td>
+      </tr>
+      <tr>
+        <td>leboncoin</td>
+        <td>sophie</td>
+        <td>9</td>
+        <td><a href="#">leboncoin Note</a></td>
+      </tr>
+      <tr>
+        <td>leboncoin</td>
+        <td>sophie</td>
+        <td>9</td>
+        <td><a href="#">leboncoin Note</a></td>
+      </tr>
+      <tr>
+        <td>leboncoin</td>
+        <td>sophie</td>
+        <td>9</td>
+        <td><a href="#">leboncoin Note</a></td>
+      </tr>
+      <tr>
+        <td>leboncoin</td>
+        <td>sophie</td>
+        <td>9</td>
+        <td><a href="#">leboncoin Note</a></td>
+      </tr>
+    </table>
   </section>
-</body>
-</html>

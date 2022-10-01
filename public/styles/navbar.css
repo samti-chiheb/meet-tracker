@@ -129,6 +129,7 @@ visibility: visible;
   pointer-events: none;
   display: block;
   
+  
 }
 
 
@@ -296,7 +297,10 @@ visibility: visible;
   height: 100%;
   width: calc(100% - 78px);
   left: 78px;
+  margin-right: 25px;
+  padding-right: 25px;
   transition: .5s;
+  z-index: -1;
 }
 
 .home-container .content {
@@ -309,5 +313,4 @@ visibility: visible;
 .side-navbar.active ~ .home-container{
   width: calc(100% - 250px);
   left: 240px;
-
 }

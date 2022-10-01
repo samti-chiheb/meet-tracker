@@ -37,6 +37,7 @@ table {
   border: 1px solid #bdc3c7;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
   margin: 25px;
+  z-index: -1;
 }
 
 tr {
@@ -62,10 +63,35 @@ th,td {
 
 .mission-container {
   display: flex;
-  flex-direction: row;
   align-items: stretch;
   justify-content: center;
   gap: 5px;
 }
 
+.mission-container .mission {
+  width: calc(100%*0.7);
+}
+.mission-container .process {
+  width: calc(100%*0.3);
+}
 
+
+@media only screen and (max-width: 960px) {
+  .mission-container {
+    flex-direction: column;
+  }
+  .mission-container .mission,
+  .mission-container .process {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  table {
+    width: 90%;
+  }
+  .mission-container .mission,
+  .mission-container .process {
+    width: 90%;
+  }
+}
