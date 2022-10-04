@@ -46,57 +46,56 @@ class Model extends Db{
     }
     
     // transfrom keys array into string
-    $strKeys = implode('AND ' , $keys );
+    $keysStr = implode('AND ' , $keys );
   
     //execute query 
     return 
-      $this->setQuery('SELECT * FROM '.$this->table.' WHERE '.$strKeys, $values )->fetchAll();
+      $this->setQuery('SELECT * FROM '.$this->table.' WHERE '.$keysStr, $values )->fetchAll();
   }
 
   public function create(){
-    $champs = [];
+    $keys = [];
     $inter = [];
-    $valeurs = [];
+    $values = [];
     
-    // on boucle pour eclater le tablau 
-    foreach ($this as $champ => $valeur) {
-      // INSERT INTO annonces (champs) VALUES (valeur, ?, ?, ? )
-      if($valeur !== null && $champ != 'db' && $champ != 'table'){
-        $champs[]=$champ ;
+    foreach ($this as $key => $value) {
+      if($value !== null && $key != 'db' && $key != 'table'){
+        $keys[]=$key ;
         $inter[]="?";
-        $valeurs[]= $valeur;
+        $values[]= $value;
       }
     }
-    // on transforme le tableau "champ" en chaine de caractere 
-    $liste_champs = implode(', ' , $champs );
-    $list_inter = implode(', ', $inter);
 
-    //on execute la setQuery 
-    return $this->setQuery('INSERT INTO '.$this->table.' ('.$liste_champs.') 
-                          VALUES ('. $list_inter.')', $valeurs );
+    $keysStr = implode(', ' , $keys );
+    $insterStr = implode(', ', $inter);
+
+    return $this->setQuery('INSERT INTO '.$this->table.' ('.$keysStr.') 
+                          VALUES ('. $insterStr.')', $values );
   }
 
-  //update methode
+  /**
+   * update methode
+   */
   public function update(){
-    $champs = [];
-    $valeurs = [];
+    $keys = [];
+    $values = [];
     
-    // on boucle pour eclater le tablau 
-    foreach ($this as $champ => $valeur) {
-      // UPDATE annonces SET Titre = ?, description = ? , ... WHERE id = ?
-      if($valeur !== null && $champ != 'db' && $champ != 'table'){
-        $champs[]="$champ = ?" ;
-        $valeurs[]= $valeur;
+    foreach ($this as $key => $value) {
+      if($value !== null && $key != 'db' && $key != 'table'){
+        $keys[]="$key = ?" ;
+        $values[]= $value;
       }
     }
-    $valeurs[] = $this->id ;
-    // on transforme le tableau "champ" en chaine de caractere 
-    $liste_champs = implode(', ' , $champs );
-    //on execute la setQuery 
-    return $this->setQuery('UPDATE '.$this->table.' SET '.$liste_champs.'WHERE id = ?', $valeurs );
+
+    $values[] = $this->id ;
+    $liste_keys = implode(', ' , $keys );
+  
+    return $this->setQuery('UPDATE '.$this->table.' SET '.$liste_keys.'WHERE id = ?', $values );
   }
   
-  //delete function
+  /**
+   * delete methode
+   */
   public function delete($id){
     return $this->setQuery("DELETE FROM {$this->table} WHERE id = ?", [$id]);
   }
@@ -120,7 +119,9 @@ class Model extends Db{
     }
   }
 
-  // methode hydrate
+  /**
+   * hydrate query
+   */
   public function hydrate($donnees){
     foreach ($donnees as $key => $value){
       // on recupere le nom du setter corresspondant a la clé (key)

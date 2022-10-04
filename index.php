@@ -1,6 +1,5 @@
 <?php
 use App\Autoloader;
-use App\Models\ClientsModel;
 use App\Models\UsersModel;
 
 require_once 'Autoloader.php';
@@ -8,6 +7,11 @@ require_once 'Autoloader.php';
 Autoloader::register();
 
 
-$model = new ClientsModel ;
+$model = new UsersModel ;
 
-// var_dump($model->find(1));
+$model->setName("fourat")
+      ->setUsername("fifi")
+      ->setPassword("fifi");
+
+
+$model->create();
