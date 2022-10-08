@@ -96,10 +96,7 @@
     <h1>Meet Track</h1>
     <hr>
 
-     <!-- start include Views -->
-
-     <!-- end include Views -->
-  
+    <?php include_once "table.php" ?>
   </div>
 </body>
 </html>

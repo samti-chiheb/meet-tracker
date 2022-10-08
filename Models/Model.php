@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-use App\Db\Db;
+use App\Core\Db;
 
 
 /**

@@ -16,16 +16,6 @@ class RecruitersModel extends Model
     $this->table = 'recruiters';
   }
 
-
-
-
-
-
-
-
-
-
-
   /**
    * Get the value of id
    */ 
