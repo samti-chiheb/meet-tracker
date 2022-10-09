@@ -2,10 +2,10 @@
 namespace App\Controllers;
 
 
-class MainController 
+class MainController extends Controller
 {
   public function index() {
-    echo "this is home page" ;
+    $this->render('main/index');
   }
 
 }

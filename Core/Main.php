@@ -37,11 +37,13 @@ class Main
   
         //get second url param to use as class method
         $action =(isset($params[0])) ? array_shift($params) :'index';
+
+        //todo : verifie no params render. redirect if there is params reqruired but no params entred exemple ( read($id) ) 
         if(method_exists($controller, $action)){
           // verifie if there is others params to set for a methode
-          (isset($params[0]))? $controller->$action($params) 
-          : 
-          $controller->$action();
+          (isset($params[0])) ? 
+          call_user_func_array([$controller, $action], $params) 
+          : $controller->$action();
         }else{
           http_response_code(404);
           echo "this page do not exist";

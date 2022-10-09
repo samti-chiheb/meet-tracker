@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,11 @@
   <title>Document</title>
   <!-- boxicon cdn link -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <!-- icon -->
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <!-- styles css -->
   <link rel="stylesheet" href="../public/styles/navbar.css">
   <link rel="stylesheet" href="../public/styles/table.css">
+  <!-- icon -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="../public/scripts/navbar.js" defer></script>
 </head>
 <body>
@@ -30,14 +31,14 @@
         <span class="tooltip">Search</span>
       </li>
       <li class="nav-item">
-        <a href="http://www.google.com">
+        <a href=<?= URL?>>
           <i class="uil uil-estate"></i>
           <span class="link-text">Home</span>
         </a>
         <span class="tooltip">Home</span>
       </li>
       <li class="nav-item">
-        <a href="#">
+        <a href="<?= URL."/recruiters" ?>">
           <i class="uil uil-chart"></i>
           <span class="link-text">Dashboard</span>
         </a>
@@ -95,11 +96,11 @@
   <div class="home-container">
     <h1>Meet Track</h1>
     <hr>
-
      <!-- start include Views -->
-
+    <div class="content">
+      <?= $content ?>
+    </div>
      <!-- end include Views -->
-  
   </div>
 </body>
 </html>

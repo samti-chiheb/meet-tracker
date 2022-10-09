@@ -128,6 +128,7 @@ visibility: visible;
   transition: 0s;
   pointer-events: none;
   display: block;
+  z-index: 3;
   
   
 }
@@ -162,7 +163,7 @@ visibility: visible;
 .side-navbar ul li .uil-search {
   height: 80% ;
   position: absolute;
-  z-index: 99;
+  z-index: 1;
   color: var(--icon-seconday);
   font-size: 1.6rem;
 }
@@ -300,7 +301,7 @@ visibility: visible;
   margin-right: 25px;
   padding-right: 25px;
   transition: .5s;
-  z-index: -1;
+  z-index: 2;
 }
 
 .home-container .content {

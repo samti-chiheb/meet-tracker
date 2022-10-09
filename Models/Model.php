@@ -24,10 +24,8 @@ class Model extends Db{
    * get all element from database
    */
   public function findAll(){
-    // $sql = 'SELECT * FROM '.$this->table;
-    // $query = $this->setQuery($sql);
-
-    $query = $this->setQuery('SELECT * FROM '.$this->table);
+    $sql = 'SELECT * FROM '.$this->table;
+    $query = $this->setQuery($sql);
 
     return $query->fetchAll();
   }
