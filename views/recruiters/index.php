@@ -1,33 +1,50 @@
-
 <h2>recruiters list</h2>
 
-<table class="recruiter">
-  <thead>
-    <tr class="table-header">
-      <th>Recruiter Name</th>
-      <th>Phone</th>
-      <th>E-mail</th>
-      <th>Recruiter Note</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach($recruiters as $recruiter): ?>
-    <tr>
-      <td> <a href= <?=URL."/recruiters/read/".$recruiter->id?>> <?=$recruiter->name ?> </a> </td>
-      <td> <?=$recruiter->phone ?> </td>
-      <td> <?=$recruiter->email ?> </td>
-      <td> <?=$recruiter->note_id ?> </td>
-    </tr>
-    <?php endforeach; ?>
-    <!-- <tr>
-      <form action="" method="POST" class="table-form" ></form>
-      <td> <input id="recruiterName" type="text"> </td>
-      <td> <input id="recruiterPhone" type="text"> </td>
-      <td> <input id="recruiterEmail" type="email"> </td>
-      <td> <input id="recruiterNote_id" type="text"> </td>
-      <td> <button class="table-form-add-btn" type="submit" value="add"></button> </td>
-    </tr> -->
-
-  </tbody>
-</table>
+<div class="table-container">
+      <div class="recruiter remove-btn">
+        <button type="button" class="delete-btn">Delete</button>
+        <button type="button" class="archive-btn">Archive</button>
+      </div>
+      <table class="recruiter">
+        <thead>
+          <tr class="table-header">
+            <th>Recruiter Name</th>
+            <th>Phone</th>
+            <th>E-mail</th>
+            <th>Recruiter Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach($recruiters as $recruiter): ?>
+          <tr>
+            <td> <a href= <?=URL."/recruiters/read/".$recruiter->id?>> <?=$recruiter->name ?> </a> </td>
+            <td> <?=$recruiter->phone ?> </td>
+            <td> <?=$recruiter->email ?> </td>
+            <td> <?=$recruiter->note_id ?> </td>
+          </tr>
+          <?php endforeach; ?>
+          <tr class="form-row">
+            <td><input type="text" placeholder=<?=$recruiter->name ?>></td>
+            <td><input type="text" placeholder=<?=$recruiter->phone ?>></td>
+            <td><input type="text" placeholder=<?=$recruiter->email ?>></td>
+            <td><input type="text" placeholder=<?=$recruiter->note_id ?>></td>
+          </tr>
+          <tr class="form-btns" >
+            <td colspan="5">
+              <button type="button" class="action-btn add-new-btn active">
+                <i class="bx bx-message-square-add" ></i>
+                Add new
+              </button>
+              <button type="button" class="action-btn save-form-btn">
+                <i class="bx bx-save" ></i>
+                Save 2
+              </button>
+              <button type="button" class="action-btn cancel-form-btn">
+                <i class="bx bx-message-square-x" ></i>
+                Cancel
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 

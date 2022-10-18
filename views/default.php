@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +8,12 @@
   <!-- boxicon cdn link -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <!-- styles css -->
-  <link rel="stylesheet" href="../public/styles/navbar.css">
-  <link rel="stylesheet" href="../public/styles/table.css">
+  <link rel="stylesheet" href="<?=STYLES?>/navbar.css">
+  <link rel="stylesheet" href="<?=STYLES?>/table.css">
   <!-- icon -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-  <script src="../public/scripts/navbar.js" defer></script>
+  <script src="<?=SCRIPTS?>/navbar.js" defer></script>
+  <script src="<?=SCRIPTS?>/table.js" defer></script>
 </head>
 <body>
   <div class="side-navbar">
@@ -93,6 +93,7 @@
       </div>
     </div>
   </div>
+  
   <div class="home-container">
     <h1>Meet Track</h1>
     <hr>
@@ -102,5 +103,6 @@
     </div>
      <!-- end include Views -->
   </div>
+  <!-- bootstrap -->
 </body>
 </html>

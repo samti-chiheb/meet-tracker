@@ -29,7 +29,7 @@ class Main
     if($params[0] != '') {
 
 
-      //get controller namespace wish is 1firt param and instantiate a class
+      //get controller namespace wish is 1st param and instantiate a class
       $controller = '\\App\\Controllers\\'.ucfirst(array_shift(($params)).'Controller') ;
       
       if(class_exists($controller)){
@@ -38,7 +38,9 @@ class Main
         //get second url param to use as class method
         $action =(isset($params[0])) ? array_shift($params) :'index';
 
-        //todo : verifie no params render. redirect if there is params reqruired but no params entred exemple ( read($id) ) 
+        //todo : verifie no params render. redirect if there is params reqruired but no params entred 
+        // exemple ( read($id) ) 
+        // solution use "catch" || ReflectionFunctionAbstract::getNumberOfParameters
         if(method_exists($controller, $action)){
           // verifie if there is others params to set for a methode
           (isset($params[0])) ? 

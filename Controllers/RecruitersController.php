@@ -5,7 +5,6 @@ use App\Models\RecruitersModel;
 
 class RecruitersController extends Controller
 {
-
   /**
    * show all recruiters registered in database 
    * @return void
@@ -17,7 +16,7 @@ class RecruitersController extends Controller
     //get all recruiters
     $recruiters = $recruitersModel->findAll();
 
-    $this->render('recruiters/index', compact('recruiters') );
+    $this->render('recruiters/index', compact('recruiters'));
   }
 
   public function read(int $id) {

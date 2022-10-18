@@ -30,42 +30,74 @@ h1 {
 display: flex;
 align-items: stretch;
 flex-direction: column;
+padding: 10rem;
+align-content: center;
+justify-content: center;
 }
+
 
 table {
   border-collapse: collapse;
   border: 1px solid #bdc3c7;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
   margin: 25px;
-  z-index: 0;
 }
 
 tr {
   transition: all .2s ease-in;
-  cursor: pointer;
+  cursor: pointer;  
 }
 
-tr:hover {
+tbody tr:hover {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
   background-color: var(--tb-secondary);
-  transform: scale(1.02, 1.1);
+  transform: scale(1.01);
+}
+
+tbody tr:last-child:hover,
+.update-action:hover {
+  box-shadow: none;
+  background-color: var(--bg-secondary);
+  transform: none;
+}
+
+.update-row:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+tbody tr.active{
+  background: rgb(9,9,121);
+  background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(3,211,118,1) 0%, rgba(1,184,236,1) 52%, rgba(0,212,255,1) 100%);  
+  color: #fff;
+  font-weight: 600;
+  transform: none;
+  box-shadow: none;
+  transition: 0.2s ease;
 }
 
 th,td {
   padding: 12px;
   text-align: center;
   border-bottom: 1px solid #ddd;
+  
 }
 
 .table-header {
   background-color: var(--bg-tertiary);
 }
 
-.mission-container {
+.mission-container,
+.table-container {
   display: flex;
   align-items: stretch;
   justify-content: center;
   gap: 5px;
+  justify-content: flex-end
+}
+
+.table-container table {
+  width: 90%;
 }
 
 .mission-container .mission {
@@ -75,6 +107,154 @@ th,td {
   width: calc(100%*0.3);
 }
 
+/*actions buttons*/
+.action-btn {
+  background-color: #4d5bf9;
+  color: #fff;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  padding: .8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02, 1.1);
+}
+
+.action-btn {
+  padding: 5px 15px;
+  outline: none;
+  border: none;
+  background-color: #e4e4e4;
+  font-size: 1.2rem;
+  border-radius: 9px;
+  width: 30%;
+  cursor: pointer;
+  margin: 3px;  
+}
+
+.action-btn i {
+  font-size: 1.5rem;
+}
+
+.cancel-form-btn.active,
+.cancel-update-btn {
+  display:initial;
+  background-color: rgb(248, 166, 166);
+}
+
+.cancel-form-btn {
+  display: none;
+}
+
+.add-new-btn.active,
+.update-btn {
+  display: initial;
+  background-color: rgb(143, 175, 143);
+}
+.add-new-btn {
+  display: none;
+}
+
+.save-form-btn.active {
+  display: initial;
+  background-color: rgb(171, 187, 240);
+}
+.save-form-btn {
+  display: none;
+}
+
+/*update row*/
+.update-row input {
+  width: 100%;
+  height: 1.5rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  color:var(--text-secondary);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.update-row input:focus {
+  outline: 3px solid rgba(191, 147, 233, 0.61);
+}
+
+.update-row {
+  background-color: #e4e4e4;
+}
+
+.form-row {
+  display: none;
+}
+
+.form-row.active{
+  display: contents;
+  transition: 1.5s ease;
+}
+
+.form-row input {
+  padding: 5px 0px;
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 9px;
+  width: 100%;
+}
+
+.form-row input::placeholder {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.remove-btn {
+  display: none;
+  transition: 1.5s ease-in-out;
+}
+
+.remove-btn.active {
+  position: relative;
+  top: 0px;
+  /* transform: translateX(100px); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+  width: 5%;
+  padding: 0px 10px;
+  background-color: #9fa6f82a ;
+  box-shadow: 2px 2px 12px rgba(153, 152, 152, 0.2), -1px -1px 8px rgba(153, 152, 152, 0.2);
+  border-radius: 12px;
+  transition: .5s ease-in;
+}
+
+.remove-btn button{
+  transition: 0.3s ease;
+  margin: 5px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.remove-btn button:hover {
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02, 1.1);
+}
+
+.remove-btn .delete-btn {
+  background-color: rgb(248, 166, 166);
+}
+
+.remove-btn .archive-btn {
+  background-color: rgb(246, 248, 140);
+}
 
 @media only screen and (max-width: 960px) {
   .mission-container {
