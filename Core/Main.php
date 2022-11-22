@@ -8,8 +8,10 @@ use App\Controllers\MainController;
 class Main
 {
   public function start() {    
+    //start session
+    session_start();
+    
   //remove trailling slash from URL
-
     //get url
     $uri = $_SERVER['REQUEST_URI'];
     
@@ -21,14 +23,10 @@ class Main
       http_response_code(301);
       header('location: '.$uri);
     }
-    
-
     //manage params
     $params = explode('/', $_GET['p']);
 
     if($params[0] != '') {
-
-
       //get controller namespace wish is 1st param and instantiate a class
       $controller = '\\App\\Controllers\\'.ucfirst(array_shift(($params)).'Controller') ;
       
@@ -58,7 +56,6 @@ class Main
       
     }else{
       $controller = new MainController;
-
       $controller->index();
     }
 

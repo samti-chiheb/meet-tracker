@@ -11,7 +11,18 @@ class UsersModel extends Model
   protected $password ;
 
   public function __construct(){
-    $this->table = 'users';
+    $class = str_replace(__NAMESPACE__.'\\','',__CLASS__);
+    $this->table = strtolower(str_replace('Model', '', $class));
+  }
+
+  public function findOneByEmail(string $email) {
+    return $this->setQuery("SELECT * FROM $this->table WHERE email= ? ", [$email])->fetch() ;
+  }
+
+  public function setSession() {
+    $_SESSION['user'] = [ 'id' => $this->id,
+                          'email' => $this->email,
+                          'username' => $this->username ];
   }
 
   /**
@@ -77,7 +88,7 @@ class UsersModel extends Model
   /**
    * Get the value of email
    */ 
-  public function geteMail()
+  public function getEmail()
   {
     return $this->email;
   }
@@ -87,7 +98,7 @@ class UsersModel extends Model
    *
    * @return  self
    */ 
-  public function seteMail($email)
+  public function setEmail($email)
   {
     $this->email = $email;
 

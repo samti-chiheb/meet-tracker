@@ -73,7 +73,7 @@
         <span class="tooltip">Information</span>
       </li>
       <li class="nav-item">
-        <a href="#">
+        <a href="<?= URL."/users/logout" ?>">
           <i class="uil uil-signout"></i>
           <span class="link-text">Sign out</span>
         </a>

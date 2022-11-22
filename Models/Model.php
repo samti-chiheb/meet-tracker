@@ -2,7 +2,6 @@
 namespace App\Models;
 use App\Core\Db;
 
-
 /**
  * Generic model : a child class of Db class to use CRUD methodes.
  */
@@ -19,7 +18,7 @@ class Model extends Db{
   public function find(int $id){
     return $this->setQuery("SELECT * FROM {$this->table} Where id = $id")->fetch();
   }
-  
+
   /**
    * get all element from database
    */
@@ -87,17 +86,17 @@ class Model extends Db{
 
     $values[] = $this->id ;
     $liste_keys = implode(', ' , $keys );
-  
+    
     return $this->setQuery('UPDATE '.$this->table.' SET '.$liste_keys.'WHERE id = ?', $values );
   }
-  
+
   /**
    * delete methode
    */
   public function delete($id){
     return $this->setQuery("DELETE FROM {$this->table} WHERE id = ?", [$id]);
   }
-  
+
   /**
    * prepare and execute query
    */
