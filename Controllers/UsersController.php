@@ -32,43 +32,37 @@ class UsersController extends Controller
       // get user from db using email 
       $usersModel = new UsersModel;
       $userArray = $usersModel->findOneByEmail((strip_tags($_POST['email'])));
-
+      
       // if user do not exist
       if(!$userArray){
-      //   // send session alert 
+        //   // send session alert 
         $_SESSION['error']=['email or password is not correct'] ;
-        header('Location: '.URL.'/login');
+        header('Location: '.URL.'/users/login');
         exit;
       }
+      
       // user exist
       $user = $usersModel->hydrate($userArray);
       
+      //check password
       if(password_verify($_POST['password'], $user->getPassword())){
         //correct password
-        //create session
         $user->setSession();
         header('location: '.URL);
       }else{
         // incorrect password
         $_SESSION['error']=['email or password is not correct'] ;
-        header('Location: '.URL.'/login');
+        header('Location: '.URL.'/users/login');
         exit;
       }
-      
-      $_SESSION['user']=$userArray->username;
-      header('Location:'. URL);
-      
-
-
     }
-    // var_dump($_SESSION);
     $this->render('users/login', [], 'login');
 
   }
 
   public function logout(){
     unset($_SESSION['user']);
-    header('location: '.URL);
+    header('location: '.$_SERVER['HTTP_REFERER']);
     exit;
   }
 

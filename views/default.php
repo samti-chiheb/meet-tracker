@@ -85,7 +85,7 @@
         <div class="profile-details">
           <img src="../public/img/avatar.webp" alt="">
           <div class="profile-info">
-            <div class="profile-name">SAMTI Chiheb</div>
+            <div class="profile-name"><?=$_SESSION['user']?></div>
             <div class="profile-job">Kotline Developer</div>
           </div>
         </div>
@@ -99,7 +99,7 @@
     <hr>
      <!-- start include Views -->
     <div class="content">
-      <?= $content ?>
+      <?=$content?>
     </div>
      <!-- end include Views -->
   </div>

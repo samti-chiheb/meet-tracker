@@ -6,7 +6,7 @@ use App\Models\RecruitersModel;
 class RecruitersController extends Controller
 {
   /**
-   * show all recruiters registered in database 
+   * show all recruiters registered in database
    * @return void
    */
   public function index() {
@@ -26,6 +26,16 @@ class RecruitersController extends Controller
     $recruiter = $recruitersModel->find($id);
 
     $this->render('recruiters/read', compact('recruiter'));
-
   }
+
+  public function add() {
+    // check if user is connected
+    if(isset($_SESSION['user']) ) {
+      var_dump($_SESSION['user']['id']) ;
+
+    }
+  }
+
+
+
 }

@@ -1,5 +1,7 @@
 <h2>recruiters list</h2>
-<form method="POST" id="postRecruiter"></form>
+<?php var_dump($_POST) ?>
+
+<form method="post" id="addRecruiter">
 
 <div class="table-container">
       <div class="recruiter remove-btn">
@@ -25,20 +27,19 @@
           </tr>
           <?php endforeach; ?>
 
-
           <tr class="form-row">
-            <td><input form="postRecruiter" type="text" placeholder=<?=$recruiter->name ?>></td>
-            <td><input form="postRecruiter" type="text" placeholder=<?=$recruiter->phone ?>></td>
-            <td><input form="postRecruiter" type="text" placeholder=<?=$recruiter->email ?>></td>
-            <td><input form="postRecruiter" type="text" placeholder=<?=$recruiter->note_id ?>></td>
+            <td><input form="addRecruiter" type="text" name="recruiterName" placeholder='recruiter name'></td>
+            <td><input form="addRecruiter" type="text" name='phone' placeholder='phone' ></td>
+            <td><input form="addRecruiter" type="text" name='email' placeholder='email' ></td>
+            <td><input form="addRecruiter" type="text" name='recruiterNote' placeholder='recruiter note'></td>
           </tr>
           <tr class="form-btns" >
             <td colspan="5">
               <button type="button" class="action-btn add-new-btn active">
                 <i class="bx bx-message-square-add" ></i>
-                Add
+                add new
               </button>
-              <button type="submit" form="postRecruiter" class="action-btn save-form-btn">
+              <button form="addRecruiter" type="submit"  class="action-btn save-form-btn">
                 <i class="bx bx-save"></i>
                 Save
               </button>

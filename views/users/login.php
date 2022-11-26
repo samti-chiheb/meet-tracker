@@ -3,7 +3,7 @@
   <div class="signin-signup">
     <form action="#" method="post" class="sign-in-form">
       <h2 class="title">Sign in</h2>
-      <?php if (isset($_SESSION['error'][0])): ?>
+      <?php if (!empty($_SESSION['error'])): ?>
       <div class="alert">
         <p><?=$_SESSION['error'][0]?></p>
         <?php unset($_SESSION['error'][0]); ?>

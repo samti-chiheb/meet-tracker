@@ -121,13 +121,8 @@ class Model extends Db{
    */
   public function hydrate($donnees){
     foreach ($donnees as $key => $value){
-      // on recupere le nom du setter corresspondant a la clé (key)
-      // titre -> setTitre
       $setter = 'set'.ucfirst($key);
-
-      //on verifie si le seter existe
       if(method_exists($this, $setter)){
-        // on appelle le setter
         $this->$setter($value);
       }
     }
