@@ -99,6 +99,7 @@ class RecruitersController extends Controller
   }
 
   public function archive(string $stringId){
+
     if ( isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
       $ids = explode("-", $stringId);
       $recruitersModel = new RecruitersModel;
@@ -110,7 +111,6 @@ class RecruitersController extends Controller
                           ->setArchive(0);
         $updatedRecruiter->update();
       }
-
       header('location: '.$_SERVER['HTTP_REFERER']);
       exit;
     }
@@ -144,7 +144,7 @@ class RecruitersController extends Controller
       //get all recruiters
       $recruiters = $recruitersModel->findBy(['user_id'=>$userId,'archive'=>0]);
 
-      $this->render('recruiters/index', compact('recruiters'));
+      $this->render('recruiters/records', compact('recruiters'));
     }else{
       $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
       header('Location:'.URL.'/users/login');

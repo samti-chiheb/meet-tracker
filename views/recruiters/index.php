@@ -1,24 +1,9 @@
 <h2>recruiters list</h2>
 <form method="post" action="recruiters/add" id="addRecruiter"></form>
-<?php
-function str_contains($haystack, $needle) {
-  return $needle !== '' && mb_strpos($haystack, $needle) !== false;
-}
-?>
 <div class="table-container">
   <div class="recruiter remove-btn">
-    <?php if(!str_contains(($_SERVER['HTTP_REFERER']),'records')){
-            $archive = 'Restore';
-            $styles = 'background-color: rgb(162, 248, 140);';
-            $action = '/recruiters/restore/';
-          }else{
-            $archive = 'Archive'; 
-            $styles = 'background-color: rgb(246, 248, 140)';
-            $action = '/recruiters/archive/';
-          } ?>
-
-    <button type="button" onclick="location.href='<?= URL?>'+deleteAction" class="delete-btn" >Delete</button>
-    <button type="button" onclick="location.href='<?= URL.$action?>'+idSelectionStr" class="archive-btn" style="<?=$styles?>"><?=$archive?></button>
+    <button type="button" onclick="location.href='<?= URL?>'+deleteAction" class="delete-btn">Delete</button>
+    <button type="button" onclick="location.href='<?= URL?>'+archiveAction" class="archive-btn">Archive</button>
   </div>
   <table class="recruiter">
     <thead>
@@ -48,7 +33,6 @@ function str_contains($haystack, $needle) {
         <td><input form="addRecruiter" type="email" name='email' placeholder='email' required></td>
         <td><input form="addRecruiter" type="number" name='phone' placeholder='phone' required></td>
         <td><input form="addRecruiter" type="text" name='recruiter-descritption' placeholder='description'></td>
-      </tr>
       <!-- add buttons -->
       <tr class="add-form-btns" >
         <td colspan="5">
@@ -70,3 +54,4 @@ function str_contains($haystack, $needle) {
     </tbody>
   </table>
 </div>
+

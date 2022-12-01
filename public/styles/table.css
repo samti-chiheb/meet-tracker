@@ -262,12 +262,10 @@ th,td {
 
 .remove-btn .delete-btn {
   background-color: rgb(248, 166, 166);
-  font-weight: 500;
 }
 
 .remove-btn .archive-btn {
-  background-color: rgb(162, 248, 140);
-  font-weight: 500;
+  background-color: rgb(246, 248, 140);
 }
 
 @media only screen and (max-width: 960px) {
