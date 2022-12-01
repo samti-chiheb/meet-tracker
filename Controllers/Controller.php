@@ -21,3 +21,4 @@ abstract class Controller
     require_once ROOT.'/Views/'.$template.'.php';
   }
 }
+

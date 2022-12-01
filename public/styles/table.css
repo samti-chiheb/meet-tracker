@@ -35,6 +35,18 @@ align-content: center;
 justify-content: center;
 }
 
+.alert {
+  position: relative;
+  width: 20%;
+  background-color: rgba(250, 134, 134, 0.589);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 5px 10px;
+  margin: 10px auto;
+}
 
 table {
   border-collapse: collapse;

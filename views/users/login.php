@@ -5,8 +5,7 @@
       <h2 class="title">Sign in</h2>
       <?php if (!empty($_SESSION['error'])): ?>
       <div class="alert">
-        <p><?=$_SESSION['error'][0]?></p>
-        <?php unset($_SESSION['error'][0]); ?>
+        <p><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
       </div>
       <?php endif; ?>
       <div class="input-field">

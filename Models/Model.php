@@ -41,7 +41,7 @@ class Model extends Db{
       $keys[]="$key = ?";
       $values[]= $value;
     }
-    
+
     // transfrom keys array into string
     $keysStr = implode('AND ' , $keys );
   

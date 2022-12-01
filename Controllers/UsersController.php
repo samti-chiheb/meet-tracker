@@ -6,8 +6,7 @@ use App\Models\UsersModel;
 
 class UsersController extends Controller
 {
-  public function register() { 
-    var_dump($_POST);
+  public function register() {
     if(Form::validate($_POST, ['username', 'email', 'password'])){
       // clean inputs ans hash password
       $username = strip_tags($_POST['username']);
@@ -36,7 +35,7 @@ class UsersController extends Controller
       // if user do not exist
       if(!$userArray){
         //   // send session alert 
-        $_SESSION['error']=['email or password is not correct'] ;
+        $_SESSION['error']='email or password is not correct';
         header('Location: '.URL.'/users/login');
         exit;
       }
@@ -51,18 +50,17 @@ class UsersController extends Controller
         header('location: '.URL);
       }else{
         // incorrect password
-        $_SESSION['error']=['email or password is not correct'] ;
+        $_SESSION['error']='email or password is not correct';
         header('Location: '.URL.'/users/login');
         exit;
       }
     }
     $this->render('users/login', [], 'login');
-
   }
 
   public function logout(){
     unset($_SESSION['user']);
-    header('location: '.$_SERVER['HTTP_REFERER']);
+    header('location: '.URL);
     exit;
   }
 

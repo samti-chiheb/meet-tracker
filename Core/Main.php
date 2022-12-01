@@ -39,6 +39,7 @@ class Main
         //todo : verifie no params render. redirect if there is params reqruired but no params entred 
         // exemple ( read($id) ) 
         // solution use "catch" || ReflectionFunctionAbstract::getNumberOfParameters
+
         if(method_exists($controller, $action)){
           // verifie if there is others params to set for a methode
           (isset($params[0])) ? 

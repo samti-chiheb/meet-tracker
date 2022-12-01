@@ -13,7 +13,9 @@
   <!-- icon -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="<?=SCRIPTS?>/navbar.js" defer></script>
-  <script src="<?=SCRIPTS?>/table.js" defer></script>
+  <script src="<?=SCRIPTS?>/table.js" type="text/javascript" defer>
+    var formId = <?= json_encode($recruiter->id) ?>
+  </script>
 </head>
 <body>
   <div class="side-navbar">
@@ -85,7 +87,7 @@
         <div class="profile-details">
           <img src="../public/img/avatar.webp" alt="">
           <div class="profile-info">
-            <div class="profile-name"><?=$_SESSION['user']?></div>
+            <div class="profile-name"><?=$_SESSION['user']['username']?></div>
             <div class="profile-job">Kotline Developer</div>
           </div>
         </div>
