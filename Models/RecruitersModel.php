@@ -9,6 +9,7 @@ class RecruitersModel extends Model
   protected $email ;
   protected $phone ;
   protected $description ;
+  protected $archive;
   protected $user_id ;
   protected $note_id ;
 
@@ -112,6 +113,26 @@ class RecruitersModel extends Model
   public function setDescription($description)
   {
     $this->description = $description;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of archive
+   */ 
+  public function getArchive()
+  {
+    return $this->archive;
+  }
+
+  /**
+   * Set the value of archive
+   *
+   * @return  self
+   */ 
+  public function setArchive($archive)
+  {
+    $this->archive = $archive;
 
     return $this;
   }

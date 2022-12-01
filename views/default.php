@@ -68,11 +68,11 @@
         <span class="tooltip">Calender</span>
       </li>
       <li class="nav-item">
-        <a href="#">
+        <a href="<?= URL."/recruiters/records" ?>">
           <i class="uil uil-comment-info-alt"></i>
-          <span class="link-text">Information</span>
+          <span class="link-text">Archive</span>
         </a>
-        <span class="tooltip">Information</span>
+        <span class="tooltip">Archive</span>
       </li>
       <li class="nav-item">
         <a href="<?= URL."/users/logout" ?>">

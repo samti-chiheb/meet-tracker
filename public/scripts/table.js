@@ -2,39 +2,55 @@
 const addNewBtns = document.querySelectorAll(".add-new-btn");
 const cancelBtns = document.querySelectorAll(".cancel-form-btn");
 const saveBtns = document.querySelectorAll(".save-form-btn");
-const formRows = document.querySelectorAll(".form-row");
+const addFormRows = document.querySelectorAll(".add-form-row");
 const removeBtns = document.querySelectorAll('.remove-btn'); 
-let deleteAction = "";
+const updateBtn = document.querySelectorAll(".update-btn");
+const cancelUpdateBtn = document.querySelectorAll(".cancel-update-btn");
+const tRows = document.querySelectorAll('tbody tr');
 
+let deleteAction = "";
+let archiveAction = "";
+var idSelectionArray = [];
+
+function insertAfter(newNode, existingNode) {
+  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
+
+// add form
+// add new form
 addNewBtns.forEach((addNewBtn, index) => {
-  let input = formRows[index].firstElementChild.firstElementChild;
+  let input = addFormRows[index].firstElementChild.firstElementChild;
   
   addNewBtn.addEventListener("click", ()=>{
-    formRows[index].classList.add('active');
+    addFormRows[index].classList.add('active');
     saveBtns[index].classList.add('active');
     cancelBtns[index].classList.add('active');
     addNewBtn.classList.remove('active');
     input.focus();
   })
 });
+// end add new form
 
+// cancel form
 cancelBtns.forEach((cancelBtn, index) => {
   
   cancelBtn.addEventListener("click", ()=> {
-    formRows[index].classList.remove('active');
+    addFormRows[index].classList.remove('active');
     cancelBtn.classList.remove('active');
     saveBtns[index].classList.remove('active');
     addNewBtns[index].classList.add('active');
   })
 })
+// end cancel form
 
+// save form
 saveBtns.forEach((saveBtn, index) => {
   
   saveBtn.addEventListener("click", ()=> {
     let input = true ;
     
     if (input) {
-      formRows[index].classList.remove('active');
+      addFormRows[index].classList.remove('active');
       cancelBtns[index].classList.remove('active');
       saveBtn.classList.remove('active');
       addNewBtns[index].classList.add('active');
@@ -43,17 +59,10 @@ saveBtns.forEach((saveBtn, index) => {
     }
   })
 })
+// end save form
+// end add form
 
 // update scripte
-const updateBtn = document.querySelectorAll(".update-btn");
-const cancelUpdateBtn = document.querySelectorAll(".cancel-update-btn");
-const tRows = document.querySelectorAll('tbody tr');
-
-function insertAfter(newNode, existingNode) {
-  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
-}
-
-
 tRows.forEach(tRow => {
   tRow.addEventListener("dblclick", ()=> {
     //get cells data
@@ -66,8 +75,8 @@ tRows.forEach(tRow => {
     }
 
     // replace td by input and add buttons container
-    if(!tRow.classList.contains('form-btns') 
-      && !tRow.classList.contains('form-row')     
+    if(!tRow.classList.contains('add-form-btns') 
+      && !tRow.classList.contains('add-form-row')     
       && !tRow.classList.contains('update-row')
       && !tRow.parentElement.parentElement.parentElement.parentElement.classList.contains('updating')
       && !tRow.parentElement.classList.contains('selection')
@@ -176,16 +185,17 @@ tRows.forEach(tRow => {
     }
   }) 
 });
-var idSelectionArray = [];
-// Select a row and show delete and archive buttons
+// end update scripte
+
+// Select a row and show actions buttons
 tRows.forEach((tRow)=> {
-  
   tRow.addEventListener('click', ()=> {
+  
     let parentClass = tRow.parentElement.parentElement.className
     let removeBtn = document.querySelector('.'+parentClass+'.remove-btn')
-
-    if(!tRow.classList.contains('form-btns') 
-    && !tRow.classList.contains('form-row')
+  
+    if(!tRow.classList.contains('add-form-btns') 
+    && !tRow.classList.contains('add-form-row')
     && !tRow.classList.contains('update-row')
     && !tRow.classList.contains('update-action')
     && !tRow.parentElement.parentElement.parentElement.parentElement.classList.contains('updating')
@@ -209,8 +219,8 @@ tRows.forEach((tRow)=> {
       // transform into string
       idSelectionStr = idSelectionArray.join("-");
       console.log(idSelectionStr);
-
       deleteAction = "/recruiters/delete/"+idSelectionStr ;
+      archiveAction = "/recruiters/archive/"+idSelectionStr ;
     }
 
     for (let i = 0; i < tRows.length; i++) {
@@ -225,8 +235,9 @@ tRows.forEach((tRow)=> {
     }
   })
 })
+// end Select a row and show actions buttons
 
-//remove selection ( active class from tr )
+//remove selection and action buttons
 tRows.forEach(tRow => {
   tRow.addEventListener('dblclick', ()=>{
     tRows.forEach(tRow => {
@@ -241,6 +252,7 @@ tRows.forEach(tRow => {
     console.log(idSelectionStr);
   })
 });
+// end remove selection and action buttons
 
 
 

@@ -1,9 +1,24 @@
 <h2>recruiters list</h2>
 <form method="post" action="recruiters/add" id="addRecruiter"></form>
+<?php
+function str_contains($haystack, $needle) {
+  return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+}
+?>
 <div class="table-container">
   <div class="recruiter remove-btn">
-    <button type="button" onclick="location.href='<?= URL?>'+deleteAction" class="delete-btn">Delete</button>
-    <button type="button" onclick=`location.href="<?= URL.'/delete\/'?>"`  class="archive-btn">Archive</button>
+    <?php if(!str_contains(($_SERVER['HTTP_REFERER']),'records')){
+            $archive = 'Restore';
+            $styles = 'background-color: rgb(162, 248, 140);';
+            $action = '/recruiters/restore/';
+          }else{
+            $archive = 'Archive'; 
+            $styles = 'background-color: rgb(246, 248, 140)';
+            $action = '/recruiters/archive/';
+          } ?>
+
+    <button type="button" onclick="location.href='<?= URL?>'+deleteAction" class="delete-btn" >Delete</button>
+    <button type="button" onclick="location.href='<?= URL.$action?>'+idSelectionStr" class="archive-btn" style="<?=$styles?>"><?=$archive?></button>
   </div>
   <table class="recruiter">
     <thead>
@@ -25,15 +40,17 @@
         <td> <?=$recruiter->phone ?> </td>
         <td> <?=$recruiter->description ?> </td>
       </tr>
-      <?php endforeach; ?>
-    
-      <tr class="form-row">
+      <?php endforeach ?>
+    <!-- add rows  -->
+      <!-- add form -->
+      <tr class="add-form-row">
         <td><input form="addRecruiter" type="text" name='recruiter-name' placeholder='recruiter name' required></td>
         <td><input form="addRecruiter" type="email" name='email' placeholder='email' required></td>
         <td><input form="addRecruiter" type="number" name='phone' placeholder='phone' required></td>
         <td><input form="addRecruiter" type="text" name='recruiter-descritption' placeholder='description'></td>
       </tr>
-      <tr class="form-btns" >
+      <!-- add buttons -->
+      <tr class="add-form-btns" >
         <td colspan="5">
           <button type="button" class="action-btn add-new-btn active">
             <i class="bx bx-message-square-add" ></i>
@@ -49,7 +66,7 @@
           </button>
         </td>
       </tr>
+    <!-- end add rows  -->
     </tbody>
   </table>
 </div>
-

@@ -19,7 +19,7 @@ class RecruitersController extends Controller
   
       $userId = $_SESSION['user']['id'];
       //get all recruiters
-      $recruiters = $recruitersModel->findBy(['user_id'=>$userId]);
+      $recruiters = $recruitersModel->findBy(['user_id'=>$userId,'archive'=>1]);
 
       $this->render('recruiters/index', compact('recruiters'));
     }else{
@@ -96,6 +96,60 @@ class RecruitersController extends Controller
     }
     header('Location: '.URL.'/recruiters');
     exit;
+  }
+
+  public function archive(string $stringId){
+    if ( isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
+      $ids = explode("-", $stringId);
+      $recruitersModel = new RecruitersModel;
+      $updatedRecruiter = new RecruitersModel;
+
+      foreach ($ids as $id){
+        $recruiter = $recruitersModel->find($id);
+        $updatedRecruiter ->setId($recruiter->id)
+                          ->setArchive(0);
+        $updatedRecruiter->update();
+      }
+
+      header('location: '.$_SERVER['HTTP_REFERER']);
+      exit;
+    }
+  }
+
+  public function restore(string $stringId){
+    if ( isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
+      $ids = explode("-", $stringId);
+      $recruitersModel = new RecruitersModel;
+      $updatedRecruiter = new RecruitersModel;
+
+      foreach ($ids as $id){
+        $recruiter = $recruitersModel->find($id);
+        $updatedRecruiter ->setId($recruiter->id)
+                          ->setArchive(1);
+        $updatedRecruiter->update();
+      }
+
+      header('location: '.$_SERVER['HTTP_REFERER']);
+      exit;
+    }
+  }
+
+  public function records(){
+    if ( isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
+
+      //instantiate model related to recruiters table.
+      $recruitersModel = new RecruitersModel;
+  
+      $userId = $_SESSION['user']['id'];
+      //get all recruiters
+      $recruiters = $recruitersModel->findBy(['user_id'=>$userId,'archive'=>0]);
+
+      $this->render('recruiters/index', compact('recruiters'));
+    }else{
+      $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
+      header('Location:'.URL.'/users/login');
+      exit;
+    }
   }
 
 }

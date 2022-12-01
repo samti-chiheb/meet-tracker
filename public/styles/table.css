@@ -200,16 +200,16 @@ th,td {
   background-color: #e4e4e4;
 }
 
-.form-row {
+.add-form-row {
   display: none;
 }
 
-.form-row.active{
+.add-form-row.active{
   display: contents;
   transition: 1.5s ease;
 }
 
-.form-row input {
+.add-form-row input {
   padding: 5px 0px;
   text-align: center;
   border: 1px solid grey;
@@ -217,7 +217,7 @@ th,td {
   width: 100%;
 }
 
-.form-row input::placeholder {
+.add-form-row input::placeholder {
   font-size: 1rem;
   text-align: center;
 }
@@ -262,10 +262,12 @@ th,td {
 
 .remove-btn .delete-btn {
   background-color: rgb(248, 166, 166);
+  font-weight: 500;
 }
 
 .remove-btn .archive-btn {
-  background-color: rgb(246, 248, 140);
+  background-color: rgb(162, 248, 140);
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 960px) {
