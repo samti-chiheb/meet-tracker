@@ -102,6 +102,7 @@
      <!-- start include Views -->
     <div class="content">
       <?=$content?>
+      <?=$test?>
     </div>
      <!-- end include Views -->
   </div>
