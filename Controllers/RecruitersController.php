@@ -21,7 +21,7 @@ class RecruitersController extends Controller
       //get all recruiters
       $recruiters = $recruitersModel->findBy(['user_id'=>$userId,'archive'=>1]);
 
-      $this->render('recruiters/index', compact('recruiters'));
+      $this->render('recruiters','recruiters/index', compact('recruiters'));
     }else{
       $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
       header('Location:'.URL.'/users/login');
@@ -85,7 +85,7 @@ class RecruitersController extends Controller
   public function read(int $id) {
     $recruitersModel = new RecruitersModel;
     $recruiter = $recruitersModel->find($id);
-    $this->render('recruiters/read', compact('recruiter'));
+    $this->render('recruiters', 'recruiters/read', compact('recruiter'));
   }
 
   public function delete(string $stringId) {
@@ -144,7 +144,7 @@ class RecruitersController extends Controller
       //get all recruiters
       $recruiters = $recruitersModel->findBy(['user_id'=>$userId,'archive'=>0]);
 
-      $this->render('recruiters/records', compact('recruiters'));
+      $this->render('recruiters', 'recruiters/records', compact('recruiters'));
     }else{
       $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
       header('Location:'.URL.'/users/login');

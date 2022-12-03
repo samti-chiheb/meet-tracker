@@ -101,8 +101,7 @@
     <hr>
      <!-- start include Views -->
     <div class="content">
-      <?=$content?>
-      <?=$test?>
+      <?=$recruiters?>
     </div>
      <!-- end include Views -->
   </div>
