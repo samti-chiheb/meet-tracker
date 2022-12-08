@@ -85,7 +85,7 @@ class RecruitersController extends Controller
   public function read(int $id) {
     $recruitersModel = new RecruitersModel;
     $recruiter = $recruitersModel->find($id);
-    $this->render('recruiters', 'recruiters/read', compact('recruiter'));
+    $this->render('recruiters','recruiters/read', compact('recruiter'));
   }
 
   public function delete(string $stringId) {

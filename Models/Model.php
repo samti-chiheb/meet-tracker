@@ -12,6 +12,8 @@ class Model extends Db{
   // Db instance
   private $db;
 
+
+
   /**
    * find or get element by id
    */
@@ -48,6 +50,12 @@ class Model extends Db{
     //execute query 
     return 
       $this->setQuery('SELECT * FROM '.$this->table.' WHERE '.$keysStr, $values )->fetchAll();
+  }
+
+  public function join($bTable, $condition){
+    $sql = "SELECT * FROM ".$this->table." INNER JOIN ".$bTable." ON ".$condition;
+    $query = $this->setQuery($sql);
+    return $query->fetchAll();
   }
 
   public function create(){

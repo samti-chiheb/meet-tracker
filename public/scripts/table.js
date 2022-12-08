@@ -81,13 +81,22 @@ tRows.forEach(tRow => {
       && !tRow.parentElement.parentElement.parentElement.parentElement.classList.contains('updating')
       && !tRow.parentElement.classList.contains('selection')
       ){
-
       // set expectation classes
       tRow.classList.add('update-row')
       tRow.classList.remove('active')
       tRow.parentElement.parentElement.parentElement.parentElement.classList.add('updating')
       
-      
+      let selectRecruiter = document.querySelector(".select-recruiter");
+      // submit form id : 
+      switch (tRow.parentElement.parentElement.className) {
+        case "client":
+          submitFormId = 'updateClient' ;
+          break;
+
+        case "recruiter":
+          submitFormId = 'updateRecruiter';
+          break;
+      }
 
 
       // add input field 
@@ -96,19 +105,50 @@ tRows.forEach(tRow => {
         const cell = cells[i];
         var formId = tRow.previousElementSibling.className;
         var th = thead.innerHTML.toLowerCase().replace(" ","-")
-        tData[i].innerHTML = `<td>
-                                <input type="text" name="${th}" form="updateRecruiter${formId}" placeholder="${cell}" value="${cell}">
-                              </td>`;        
+
+        switch (tRow.parentElement.parentElement.className) {
+          case "client":
+            if (th != "recruiter") {
+              tData[i].innerHTML = `<td>
+                                      <input type="text" name="${th}" form="${submitFormId+formId}" placeholder="${cell}" value="${cell}">
+                                    </td>`;
+            }else{
+              let selectRecruiterStr = selectRecruiter.innerHTML;
+              selectedIndex = selectRecruiterStr.search(cell)-1;
+              // add selected attribut
+              selectRecruiterStr = selectRecruiterStr.slice(0,selectedIndex)+"selected"+selectRecruiterStr.slice(selectedIndex);
+              // add form id
+              selectRecruiterStr = selectRecruiterStr.replace("addClient",submitFormId+formId)
+              tData[i].innerHTML = `<td>
+                                      ${selectRecruiterStr}
+                                    </td>`;
+            }
+            break;
+
+          case "recruiter":
+            tData[i].innerHTML = `<td>
+                                <input type="text" name="${th}" form="${submitFormId+formId}" placeholder="${cell}" value="${cell}">
+                              </td>`;
+            break;
+        
+          default:
+            break;
+        }
+
+         
       }
 
       const input = document.querySelectorAll(".update-row input")
       input[0].select()
 
       // add update buttons container
+
+      
+
       const updateActionRow = document.createElement('tr');
       updateActionRow.classList.add('update-action');
       updateActionRow.innerHTML =`<td colspan=${cells.length+1}>
-                                    <button form="updateRecruiter${formId}" type="submit"  class="action-btn update-btn">
+                                    <button form="${submitFormId+formId}" type="submit"  class="action-btn update-btn">
                                       <i class="bx bx-message-edit" ></i>
                                       Update
                                     </button>
@@ -143,9 +183,8 @@ tRows.forEach(tRow => {
       });
 
       //update btn
-      updateBtn.addEventListener("click", ()=>{
-        const updateForm = document.querySelector('#updateRecruiter');
-        console.log(updateForm);
+      // updateBtn.addEventListener("click", ()=>{
+      //   const updateForm = document.querySelector('#updateRecruiter');
 
 
         // //1 get input values and replace cells with thoese values
@@ -181,7 +220,7 @@ tRows.forEach(tRow => {
         // //to do:  2- add form
         // //to do:  3- add form verification
         // //to do:  4- add form error messages
-      })
+      // })
     }
   }) 
 });
@@ -218,7 +257,6 @@ tRows.forEach((tRow)=> {
       // end adding selection id list
       // transform into string
       idSelectionStr = idSelectionArray.join("-");
-      console.log(idSelectionStr);
       deleteAction = "/recruiters/delete/"+idSelectionStr ;
       archiveAction = "/recruiters/archive/"+idSelectionStr ;
     }
@@ -249,7 +287,6 @@ tRows.forEach(tRow => {
     //reste selection id list
     idSelectionArray = []
     idSelectionStr = idSelectionArray.toString();
-    console.log(idSelectionStr);
   })
 });
 // end remove selection and action buttons
