@@ -36,7 +36,7 @@ class ClientsController extends Controller{
       // get recruiters
       $recruiters = $recruitersModel->findBy(['user_id'=>$userId]);
       // join
-      $recruitersJoin = $clientsModel->join('recruiters', 'clients.recruiter_id=recruiters.id');
+      $recruitersJoin = $clientsModel->join('recruiters', " clients.recruiter_id=recruiters.id WHERE clients.user_id=$userId");
  
       $this->run('clients/index', compact('clients','recruiters' ,'recruitersJoin'));
     }else{

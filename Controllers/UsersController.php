@@ -47,7 +47,7 @@ class UsersController extends Controller
       if(password_verify($_POST['password'], $user->getPassword())){
         //correct password
         $user->setSession();
-        header('location: '.URL);
+        header('location: '.URL.'/dashboard');
       }else{
         // incorrect password
         $_SESSION['error']='email or password is not correct';

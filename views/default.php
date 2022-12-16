@@ -32,13 +32,7 @@
         <input class="text-field" type="text" placeholder="Search...">
         <span class="tooltip">Search</span>
       </li>
-      <li class="nav-item">
-        <a href=<?= URL?>>
-          <i class="uil uil-estate"></i>
-          <span class="link-text">Home</span>
-        </a>
-        <span class="tooltip">Home</span>
-      </li>
+      
       <li class="nav-item">
         <a href="<?= URL."/dashboard" ?>">
           <i class="uil uil-chart"></i>
@@ -46,6 +40,7 @@
         </a>
         <span class="tooltip">Dashborad</span>
       </li>
+
       <li class="nav-item">
         <a href="<?= URL."/recruiters" ?>">
           <i class="uil uil-notes"></i>
@@ -53,6 +48,7 @@
         </a>
         <span class="tooltip">Recruiters</span>
       </li>
+
       <li class="nav-item">
         <a href="<?= URL."/clients" ?>">
           <i class="uil uil-notebooks"></i>
@@ -60,6 +56,7 @@
         </a>
         <span class="tooltip">Clients</span>
       </li>
+
       <li class="nav-item">
         <a href="#">
           <i class="uil uil-calender"></i>
@@ -67,13 +64,15 @@
         </a>
         <span class="tooltip">Calender</span>
       </li>
+
       <li class="nav-item">
         <a href="<?= URL."/recruiters/records" ?>">
           <i class="uil uil-comment-info-alt"></i>
-          <span class="link-text">Archive</span>
+          <span class="link-text">Recruiters Archive</span>
         </a>
-        <span class="tooltip">Archive</span>
+        <span class="tooltip">Recruiters Archive</span>
       </li>
+
       <li class="nav-item">
         <a href="<?= URL."/users/logout" ?>">
           <i class="uil uil-signout"></i>
@@ -91,7 +90,9 @@
             <div class="profile-job">Kotline Developer</div>
           </div>
         </div>
-        <i class="uil uil-signout logout" id="log_out"></i>
+        <a href="<?= URL."/users/logout" ?>">
+          <i class="uil uil-signout logout" id="log_out"></i>
+        </a>
       </div>
     </div>
   </div>

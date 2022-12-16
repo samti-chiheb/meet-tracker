@@ -26,6 +26,18 @@ h1 {
   border-radius: 16px;
 }
 
+h2 {
+  text-transform: uppercase;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 20px 0px;
+  margin: auto ;
+  width: 70%;
+  text-align: center;
+  border-radius: 16px;
+
+}
+
 .tables {
 display: flex;
 align-items: stretch;
@@ -53,6 +65,7 @@ table {
   border: 1px solid #bdc3c7;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
   margin: 25px;
+  margin-bottom: 150px;
 }
 
 tr {
