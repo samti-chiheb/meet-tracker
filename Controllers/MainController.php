@@ -6,9 +6,9 @@ class MainController extends Controller
 {
   public function index() {
     if(isset($_SESSION['user']) && !empty($_SESSION['user'])) {
-      $this->render('main', 'main/index');
+      $this->render('main/index');
     }else{
-      $this->render('main', 'main/index',[],"home");
+      $this->render('main/index',[],"home");
     }
 
   }

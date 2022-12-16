@@ -2,8 +2,8 @@
 <form method="post" action="clients/add" id="addClient"></form>
 <div class="table-container">
   <div class="client remove-btn">
-    <button type="button" onclick="location.href='<?= URL?>'+deleteAction" class="delete-btn">Delete</button>
-    <button type="button" onclick="location.href='<?= URL?>'+archiveAction" class="archive-btn">Archive</button>
+    <button type="button" onclick="location.href='<?= URL?>'+'/clients'+deleteAction" class="delete-btn">Delete</button>
+    <button type="button" onclick="location.href='<?= URL?>'+'/clients'+archiveAction" class="archive-btn">Archive</button>
   </div>
   <table class="client">
     <thead>
@@ -36,8 +36,8 @@
         <td><input form="addClient" type="number" name='phone' placeholder='phone' required></td>
         <td><input form="addClient" type="text" name='client-descritption' placeholder='description'></td>
         <td class="select-recruiter">
-          <select name="recruiter-id" form="addClient" required>
-          <?php foreach($uniqueRecruitersJoin as $recruiter): ?>
+          <select name="recruiter-id" form="addClient" required >
+          <?php foreach($recruiters as $recruiter): ?>
             <option value=<?=$recruiter->id?>><?=$recruiter->name?></option>
           <?php endforeach ?>
           </select>

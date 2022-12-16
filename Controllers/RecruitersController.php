@@ -21,7 +21,25 @@ class RecruitersController extends Controller
       //get all recruiters
       $recruiters = $recruitersModel->findBy(['user_id'=>$userId,'archive'=>1]);
 
-      $this->render('recruiters','recruiters/index', compact('recruiters'));
+      $this->render('recruiters/index', compact('recruiters'));
+    }else{
+      $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
+      header('Location:'.URL.'/users/login');
+      exit;
+    }
+  }
+  
+  public function view() {
+    if ( isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
+
+      //instantiate model related to recruiters table.
+      $recruitersModel = new RecruitersModel;
+  
+      $userId = $_SESSION['user']['id'];
+      //get all recruiters
+      $recruiters = $recruitersModel->findBy(['user_id'=>$userId,'archive'=>1]);
+
+      $this->run('recruiters/index', compact('recruiters'));
     }else{
       $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
       header('Location:'.URL.'/users/login');
@@ -85,7 +103,7 @@ class RecruitersController extends Controller
   public function read(int $id) {
     $recruitersModel = new RecruitersModel;
     $recruiter = $recruitersModel->find($id);
-    $this->render('recruiters','recruiters/read', compact('recruiter'));
+    $this->render('recruiters/read', compact('recruiter'));
   }
 
   public function delete(string $stringId) {
@@ -121,7 +139,6 @@ class RecruitersController extends Controller
       $ids = explode("-", $stringId);
       $recruitersModel = new RecruitersModel;
       $updatedRecruiter = new RecruitersModel;
-
       foreach ($ids as $id){
         $recruiter = $recruitersModel->find($id);
         $updatedRecruiter ->setId($recruiter->id)
@@ -143,8 +160,7 @@ class RecruitersController extends Controller
       $userId = $_SESSION['user']['id'];
       //get all recruiters
       $recruiters = $recruitersModel->findBy(['user_id'=>$userId,'archive'=>0]);
-
-      $this->render('recruiters', 'recruiters/records', compact('recruiters'));
+      $this->render('recruiters/records', compact('recruiters'));
     }else{
       $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
       header('Location:'.URL.'/users/login');

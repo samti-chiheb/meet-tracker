@@ -98,25 +98,28 @@ tRows.forEach(tRow => {
           break;
       }
 
-
       // add input field 
       for (let i = 0; i < cells.length; i++) {
-        const thead = theads[i];
         const cell = cells[i];
-        var formId = tRow.previousElementSibling.className;
-        var th = thead.innerHTML.toLowerCase().replace(" ","-")
+         var formId = tRow.previousElementSibling.className;
 
         switch (tRow.parentElement.parentElement.className) {
-          case "client":
-            if (th != "recruiter") {
+          // case client table 
+          case "client" : 
+            var clientThs = document.querySelectorAll('.client th');
+            clientTh = clientThs[i]
+            var clientTh = clientTh.innerHTML.toLowerCase().replace(" ","-")
+            if (clientTh != "recruiter") {
               tData[i].innerHTML = `<td>
-                                      <input type="text" name="${th}" form="${submitFormId+formId}" placeholder="${cell}" value="${cell}">
+                                      <input type="text" name="${clientTh}" form="${submitFormId+formId}" placeholder="${cell}" value="${cell}">
                                     </td>`;
             }else{
               let selectRecruiterStr = selectRecruiter.innerHTML;
+              console.log(selectRecruiterStr);
               selectedIndex = selectRecruiterStr.search(cell)-1;
               // add selected attribut
               selectRecruiterStr = selectRecruiterStr.slice(0,selectedIndex)+"selected"+selectRecruiterStr.slice(selectedIndex);
+              console.log(selectRecruiterStr);
               // add form id
               selectRecruiterStr = selectRecruiterStr.replace("addClient",submitFormId+formId)
               tData[i].innerHTML = `<td>
@@ -125,9 +128,13 @@ tRows.forEach(tRow => {
             }
             break;
 
+          // case recruiter table 
           case "recruiter":
+            var recruiterThs = document.querySelectorAll('.recruiter th');
+            recruiterTh = recruiterThs[i]
+            var recruiterTh = recruiterTh.innerHTML.toLowerCase().replace(" ","-")
             tData[i].innerHTML = `<td>
-                                <input type="text" name="${th}" form="${submitFormId+formId}" placeholder="${cell}" value="${cell}">
+                                <input type="text" name="${recruiterTh}" form="${submitFormId+formId}" placeholder="${cell}" value="${cell}">
                               </td>`;
             break;
         
@@ -142,9 +149,6 @@ tRows.forEach(tRow => {
       input[0].select()
 
       // add update buttons container
-
-      
-
       const updateActionRow = document.createElement('tr');
       updateActionRow.classList.add('update-action');
       updateActionRow.innerHTML =`<td colspan=${cells.length+1}>
@@ -157,11 +161,9 @@ tRows.forEach(tRow => {
                                       Cancel
                                     </button>
                                   </td>`;
-      
-
       insertAfter(updateActionRow, tRow);
 
-    // buttons actions
+      // buttons actions
       const updateBtn = document.querySelector(".update-btn");
       const cancelUpdateBtn = document.querySelector(".cancel-update-btn");
 
@@ -178,7 +180,6 @@ tRows.forEach(tRow => {
         updateActionRow.remove();
         tRow.classList.remove('update-row')
         tRow.parentElement.parentElement.parentElement.parentElement.classList.remove('updating')
-
         // todo add href to last cell 
       });
 
@@ -257,8 +258,8 @@ tRows.forEach((tRow)=> {
       // end adding selection id list
       // transform into string
       idSelectionStr = idSelectionArray.join("-");
-      deleteAction = "/recruiters/delete/"+idSelectionStr ;
-      archiveAction = "/recruiters/archive/"+idSelectionStr ;
+      deleteAction = "/delete/"+idSelectionStr ;
+      archiveAction = "/archive/"+idSelectionStr ;
     }
 
     for (let i = 0; i < tRows.length; i++) {

@@ -10,15 +10,36 @@ class ClientsController extends Controller{
   public function index() {
     if ( isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
       $clientsModel = new ClientsModel;
+      $recruitersModel = new RecruitersModel;
       $userId = $_SESSION['user']['id'];
-      // get all clients
+      // get clients
       $clients = $clientsModel->findBy(['user_id'=>$userId,'archive'=>1]);
+      // get recruiters
+      $recruiters = $recruitersModel->findBy(['user_id'=>$userId]);
       // join
       $recruitersJoin = $clientsModel->join('recruiters', 'clients.recruiter_id=recruiters.id');
-      $uniqueRecruitersJoin = $clientsModel->join('recruiters', 'clients.recruiter_id=recruiters.id GROUP BY recruiters.id');
-      
-      
-      $this->render('clients','clients/index', compact('clients', 'recruitersJoin', 'uniqueRecruitersJoin'));
+
+      $this->render('clients/index', compact('clients','recruiters' ,'recruitersJoin'));
+    }else{
+      $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
+      header('Location:'.URL.'/users/login');
+      exit;
+    }
+  }
+
+  public function view(){
+    if ( isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
+      $clientsModel = new ClientsModel;
+      $recruitersModel = new RecruitersModel;
+      $userId = $_SESSION['user']['id'];
+      // get clients
+      $clients = $clientsModel->findBy(['user_id'=>$userId,'archive'=>1]);
+      // get recruiters
+      $recruiters = $recruitersModel->findBy(['user_id'=>$userId]);
+      // join
+      $recruitersJoin = $clientsModel->join('recruiters', 'clients.recruiter_id=recruiters.id');
+ 
+      $this->run('clients/index', compact('clients','recruiters' ,'recruitersJoin'));
     }else{
       $_SESSION['error'] = 'you need sign-in or register to access this page !' ;
       header('Location:'.URL.'/users/login');
@@ -59,6 +80,7 @@ class ClientsController extends Controller{
       $clientsModel = new ClientsModel;
       $client = $clientsModel->find($id);
 
+      var_dump($_POST);
       if(Form::validate($_POST, ['client-name', 'email', 'phone', 'recruiter-id'])){
         $clientName = strip_tags($_POST['client-name']) ;
         $phone = strip_tags($_POST['phone']) ;
@@ -84,6 +106,15 @@ class ClientsController extends Controller{
     }
   }
 
+  public function delete(string $stringId) {
+    $ids = explode("-",$stringId) ;
+    $client = new ClientsModel;
+    foreach ($ids as $id) {
+      $client->delete($id);
+    }
+    header('location: '.$_SERVER['HTTP_REFERER']);
+    exit;
+  }
 
 
 

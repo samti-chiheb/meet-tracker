@@ -2,8 +2,8 @@
 <form method="post" action="recruiters/add" id="addRecruiter"></form>
 <div class="table-container">
   <div class="recruiter remove-btn">
-    <button type="button" onclick="location.href='<?= URL?>'+deleteAction" class="delete-btn">Delete</button>
-    <button type="button" onclick="location.href='<?= URL?>'+archiveAction" class="archive-btn">Archive</button>
+    <button type="button" onclick="location.href='<?= URL?>'+'/recruiters'+deleteAction" class="delete-btn">Delete</button>
+    <button type="button" onclick="location.href='<?= URL?>'+'/recruiters'+archiveAction" class="archive-btn">Archive</button>
   </div>
   <table class="recruiter">
     <thead>

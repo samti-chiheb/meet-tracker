@@ -40,25 +40,25 @@
         <span class="tooltip">Home</span>
       </li>
       <li class="nav-item">
-        <a href="<?= URL."/recruiters" ?>">
+        <a href="<?= URL."/dashboard" ?>">
           <i class="uil uil-chart"></i>
           <span class="link-text">Dashboard</span>
         </a>
         <span class="tooltip">Dashborad</span>
       </li>
       <li class="nav-item">
-        <a href="#">
+        <a href="<?= URL."/recruiters" ?>">
           <i class="uil uil-notes"></i>
-          <span class="link-text">Notes</span>
+          <span class="link-text">Recruiters</span>
         </a>
-        <span class="tooltip">Notes</span>
+        <span class="tooltip">Recruiters</span>
       </li>
       <li class="nav-item">
-        <a href="#">
+        <a href="<?= URL."/clients" ?>">
           <i class="uil uil-notebooks"></i>
-          <span class="link-text">Appointments</span>
+          <span class="link-text">Clients</span>
         </a>
-        <span class="tooltip">Appointments</span>
+        <span class="tooltip">Clients</span>
       </li>
       <li class="nav-item">
         <a href="#">
@@ -101,10 +101,9 @@
     <hr>
      <!-- start include Views -->
     <div class="content">
-      <?=$clients?>
+      <?=$content?>
     </div>
      <!-- end include Views -->
   </div>
-  <!-- bootstrap -->
 </body>
 </html>
