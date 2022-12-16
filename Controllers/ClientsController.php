@@ -17,8 +17,7 @@ class ClientsController extends Controller{
       // get recruiters
       $recruiters = $recruitersModel->findBy(['user_id'=>$userId]);
       // join
-      $recruitersJoin = $clientsModel->join('recruiters', 'clients.recruiter_id=recruiters.id');
-
+      $recruitersJoin = $clientsModel->join('recruiters', " clients.recruiter_id=recruiters.id WHERE clients.user_id=$userId");
       $this->render('clients/index', compact('clients','recruiters' ,'recruitersJoin'));
     }else{
       $_SESSION['error'] = 'you need sign-in or register to access this page !' ;

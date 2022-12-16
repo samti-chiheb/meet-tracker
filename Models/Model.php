@@ -52,8 +52,8 @@ class Model extends Db{
       $this->setQuery('SELECT * FROM '.$this->table.' WHERE '.$keysStr, $values )->fetchAll();
   }
 
-  public function join($bTable, $condition){
-    $sql = "SELECT * FROM ".$this->table." INNER JOIN ".$bTable." ON ".$condition;
+  public function join($bTable, $condition, $where=''){
+    $sql = "SELECT * FROM ".$this->table." ".$where." INNER JOIN ".$bTable." ON ".$condition;
     $query = $this->setQuery($sql);
     return $query->fetchAll();
   }
